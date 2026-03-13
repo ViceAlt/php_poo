@@ -15,6 +15,6 @@ class Calculadora {
 }
 
 $calc = new Calculadora(0);
-echo "VALOR = $valor";
+echo "VALOR = $calc->valor";
 $calc->valor = $calc->somar(3, 5);
-echo "VALOR = $valor";
+echo "VALOR = $calc->valor";

@@ -4,7 +4,7 @@ class Carro {
     private $modelo;
     private $velocidade;
 
-    protected function __construct($modelo, $velocidade) {
+    public function __construct($modelo, $velocidade) {
         $this->modelo = $modelo;
         $this->velocidade = $velocidade;
     }
@@ -19,19 +19,23 @@ class Carro {
         return $this->modelo;
     }
 
-    protected function setNewVel($novaVelocidade)
+    public function SetVelo($novaVelocidade)
     {
+    if($novaVelocidade >= 0 && $novaVelocidade < 201){
         $this->velocidade = $novaVelocidade;
+    }else{
+        echo "ERRO: velocimetro ultrapassou o limite de velocidade<br>";
+    }
     }
 }
 
 // --- TESTE DO VEÍCULO ---
-$meuCarro = new $this->modelo()("Senai-Mobile", 0);
+$meuCarro = new Carro("Senai-Mobile", 0);
 
 // O desastre: alteração direta sem validação
-$meuCarro->velocidade = 5000; // Velocidade de foguete?
-$meuCarro->velocidade = -60;   // Carro andando no tempo?
+$meuCarro->SetVelo(200); // Velocidade de foguete?
 
-echo "Modelo: " . $meuCarro->modelo . "<br>";
-echo "Velocidade atual: " . $meuCarro->velocidade . " km/h";
+
+echo "Modelo: " . $meuCarro->getCarro() . "<br>";
+echo "Velocidade atual: " . $meuCarro->getVelocidade() . " km/h";
 ?>
